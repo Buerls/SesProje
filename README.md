@@ -78,3 +78,24 @@ Loss: CrossEntropy (Label Smoothing: 0.1)
 | **Eğitim Doğruluğu** | %87.50 |
 | **Test Doğruluğu** | **%89.67** |
 | **En İyi Epoch** | 27 |
+
+
+## ⚠️ Önemli: Veri Seti Kurulumu
+
+Projeyi çalıştırmadan önce **Mozilla Common Voice** veri setlerini indirip aşağıdaki klasör yapısına göre düzenlemeniz gerekmektedir.
+
+1.  Proje ana dizininde `data` isminde bir klasör oluşturun.
+2.  Bu klasörün içine `tr` (Türkçe), `ko` (Korece) ve `sv` (İsveççe) isimli 3 alt klasör açın.
+3.  İndirdiğiniz veri setlerini (.mp3 dosyalarını içeren `clips` klasörü ve `.tsv` dosyalarını) ilgili dil klasörünün içine çıkarın.
+
+**Olması Gereken Klasör Yapısı:**
+```text
+SesProje/
+├── data/
+│   ├── tr/          # Türkçe veri seti dosyaları buraya
+│   │   ├── clips/
+│   │   └── train.tsv
+│   ├── ko/          # Korece veri seti dosyaları buraya
+│   └── sv/          # İsveççe veri seti dosyaları buraya
+├── src/
+└── ...

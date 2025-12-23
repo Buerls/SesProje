@@ -4,10 +4,6 @@ from torch.nn.utils import weight_norm
 
 
 class Chomp1d(nn.Module):
-    """
-    TCN'in en önemli parçası: Geleceği görmemesi için
-    sağ taraftaki (gelecek zaman) padding'i kırpar.
-    """
 
     def __init__(self, chomp_size):
         super(Chomp1d, self).__init__()
@@ -18,10 +14,6 @@ class Chomp1d(nn.Module):
 
 
 class TemporalBlock(nn.Module):
-    """
-    TCN'in temel yapı taşı (Residual Block).
-    İki adet Dilated Conv1D katmanından oluşur.
-    """
 
     def __init__(self, n_inputs, n_outputs, kernel_size, stride, dilation, padding, dropout=0.2):
         super(TemporalBlock, self).__init__()
@@ -59,10 +51,7 @@ class TemporalBlock(nn.Module):
 
 class LanguageTCN(nn.Module):
     def __init__(self, num_inputs=128, num_channels=[64, 128, 256, 512], kernel_size=7, dropout=0.2, num_classes=3):
-        """
-        num_inputs: Mel-Spectrogram frekans sayısı (senin verinde 128)
-        num_channels: Her katmandaki kanal sayısı (Filtre sayısı)
-        """
+
         super(LanguageTCN, self).__init__()
         layers = []
         num_levels = len(num_channels)
